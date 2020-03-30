@@ -1,3 +1,5 @@
+Fork of https://github.com/ankane/blazer with views adjusted for BS4 and removed some styling garbage.
+
 # Blazer
 
 Explore your data with SQL. Easily create charts and dashboards, and share them with your team.
