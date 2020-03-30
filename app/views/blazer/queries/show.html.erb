@@ -1,15 +1,17 @@
 <% blazer_title @query.name %>
 
-<div class="topbar">
-  <div class="container">
-    <div class="row" style="padding-top: 13px;">
-      <div class="col-sm-9">
+<div class="topbar m-1 p-1 border-bottom">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2 pl-0">
         <%= render partial: "blazer/nav" %>
-        <h3 style="line-height: 34px; display: inline; margin-left: 5px;">
+      </div>
+      <div class="col-sm-7 text-center">
+        <h3 class="m-0">
           <%= @query.name %>
         </h3>
       </div>
-      <div class="col-sm-3 text-right">
+      <div class="col-sm-3 text-right pr-0">
         <%= link_to "Edit", edit_query_path(@query, variable_params), class: "btn btn-default", disabled: !@query.editable?(blazer_user) %>
         <%= link_to "Fork", new_query_path(variable_params.merge(fork_query_id: @query.id, data_source: @query.data_source, name: @query.name)), class: "btn btn-info" %>
 
@@ -21,7 +23,7 @@
   </div>
 </div>
 
-<div style="margin-bottom: 60px;"></div>
+<div class="mb-5"></div>
 
 <% if @sql_errors.any? %>
   <div class="alert alert-danger">

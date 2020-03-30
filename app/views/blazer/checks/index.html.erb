@@ -1,7 +1,11 @@
 <% blazer_title "Checks" %>
 
-<div id="header">
-  <div class="pull-right" style="line-height: 34px;">
+<div id="header" class="topbar row m-1 p-1 border-bottom">
+  <div class="col-md-8">
+    <input id="search" type="text" placeholder="Start typing a query or state" class="search form-control" />
+  </div>
+
+  <div class="col-md-4">
     <div class="btn-group">
       <%= link_to "New Check", new_check_path, class: "btn btn-info" %>
       <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -9,25 +13,23 @@
         <span class="sr-only">Toggle Dropdown</span>
       </button>
       <ul class="dropdown-menu">
-        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Home", root_path, class: "dropdown-item" %></li>
         <li role="separator" class="divider"></li>
-        <li><%= link_to "New Query", new_query_path %></li>
-        <li><%= link_to "New Dashboard", new_dashboard_path %></li>
+        <li><%= link_to "New Query", new_query_path, class: "dropdown-item" %></li>
+        <li><%= link_to "New Dashboard", new_dashboard_path, class: "dropdown-item" %></li>
       </ul>
     </div>
   </div>
-
-  <input id="search" type="text" placeholder="Start typing a query or state" style="width: 300px; display: inline-block;" class="search form-control" />
 </div>
 
 <table id="checks" class="table">
   <thead>
     <tr>
       <th>Query</th>
-      <th style="width: 10%;">State</th>
-      <th style="width: 10%;">Run</th>
-      <th style="width: 20%;">Notify</th>
-      <th style="width: 15%;"></th>
+      <th>State</th>
+      <th>Run</th>
+      <th>Notify</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -41,7 +43,7 @@
         </td>
         <td><%= check.schedule if check.respond_to?(:schedule) %></td>
         <td>
-          <ul class="list-unstyled" style="margin-bottom: 0; word-break: break-all;">
+          <ul class="list-unstyled">
             <% check.split_emails.each do |email| %>
               <li><%= email %></li>
             <% end %>
@@ -50,7 +52,7 @@
             <% end %>
           </ul>
         </td>
-        <td style="text-align: right; padding: 1px;">
+        <td>
           <%= link_to "Edit", edit_check_path(check), class: "btn btn-info" %>
           <%= link_to "Run Now", query_path(check.query), class: "btn btn-primary" %>
         </td>

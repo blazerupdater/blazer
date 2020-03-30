@@ -6,11 +6,6 @@ module Blazer
       if defined?(Sprockets) && Sprockets::VERSION >= "4"
         app.config.assets.precompile << "blazer/application.js"
         app.config.assets.precompile << "blazer/application.css"
-        app.config.assets.precompile << "blazer/glyphicons-halflings-regular.eot"
-        app.config.assets.precompile << "blazer/glyphicons-halflings-regular.svg"
-        app.config.assets.precompile << "blazer/glyphicons-halflings-regular.ttf"
-        app.config.assets.precompile << "blazer/glyphicons-halflings-regular.woff"
-        app.config.assets.precompile << "blazer/glyphicons-halflings-regular.woff2"
         app.config.assets.precompile << "blazer/favicon.png"
       else
         # use a proc instead of a string

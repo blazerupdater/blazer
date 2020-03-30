@@ -5,7 +5,7 @@
 <hr />
 
 <div id="header">
-  <input id="search" type="text" placeholder="Start typing a table or column" style="width: 300px; display: inline-block;" class="search form-control" />
+  <input id="search" type="text" placeholder="Start typing a table or column" class="search form-control" />
 </div>
 
 <% @schema.each do |table| %>
@@ -20,7 +20,7 @@
     <tbody>
       <% table[:columns].each do |column| %>
         <tr>
-          <td style="width: 60%;"><%= column[:name] %></td>
+          <td><%= column[:name] %></td>
           <td class="text-muted"><%= column[:data_type] %></td>
         </tr>
       <% end %>

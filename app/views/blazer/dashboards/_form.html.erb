@@ -11,9 +11,9 @@
     <%= f.label :charts %>
     <ul id="queries" class="list-group">
       <li class="list-group-item" v-for="(query, index) in queries" :key="query.id" v-cloak>
-        <span class="glyphicon glyphicon-remove" aria-hidden="true" v-on:click="remove(index)"></span>
         {{ query.name }}
         <input type="hidden" name="query_ids[]" :value="query.id">
+        <a href="#" v-on:click="remove(index)" class="btn btn-sm btn-danger float-right">remove</a>
       </li>
     </ul>
   </div>
@@ -21,7 +21,7 @@
     <%= f.label :query_id, "Add Chart" %>
     <%= select_tag :query_id, nil, {include_blank: true, placeholder: "Select chart"} %>
   </div>
-  <p style="padding-bottom: 140px;" v-cloak>
+  <p v-cloak>
     <% if @dashboard.persisted? %>
       <%= link_to "Delete", dashboard_path(@dashboard), method: :delete, "data-confirm" => "Are you sure?", class: "btn btn-danger"%>
     <% end %>
